@@ -1,4 +1,4 @@
-import { updateStatusContact } from "../../repositories/updateStatusContact.js";
+import { updateStatusContact } from "#repositories/updateStatusContact.js";
 
 export async function updateStatus(req, res, next) {
   if (!req.body.favorite) {

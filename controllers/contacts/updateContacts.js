@@ -1,4 +1,4 @@
-import { updateContact } from "../../repositories/updateContact.js";
+import { updateContact } from "#repositories/updateContact.js";
 
 export async function updateContactById(req, res, next) {
   const contact = await updateContact(req.params.contactId, req.body);

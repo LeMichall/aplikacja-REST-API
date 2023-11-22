@@ -12,3 +12,15 @@ export const validationMiddleware = (req, res, next) => {
   if (error) return res.status(400).send({ error: error.message });
   return next();
 };
+
+const userSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+});
+
+export const userValidationMiddleware = (req, res, next) => {
+  const newUser = req.body;
+  const { error } = userSchema.validate(newUser);
+  if (error) return res.status(400).send({ error: error.message });
+  return next();
+};
