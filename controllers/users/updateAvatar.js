@@ -1,7 +1,8 @@
-import { User } from "../../models/users.js";
 import path from "path";
 import jimp from "jimp";
 import fs from "fs/promises";
+
+import { User } from "../../models/users.js";
 
 const avatarsFolder = path.join(process.cwd(), "public", "avatars");
 
