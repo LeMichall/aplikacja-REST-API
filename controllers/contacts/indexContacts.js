@@ -1,4 +1,4 @@
-import { listContacts } from "../../repositories/indexContacts.js";
+import { listContacts } from "#repositories/indexContacts.js";
 
 export async function indexContacts(req, res, next) {
   try {

@@ -1,4 +1,4 @@
-import { Contact } from "../models/contacts.js";
+import { Contact } from "#models/contacts.js";
 
 export async function updateStatusContact(contactId, body) {
   const contact = await Contact.findByIdAndUpdate(

@@ -1,4 +1,4 @@
-import { addContact } from "../../repositories/createContacts.js";
+import { addContact } from "#repositories/createContacts.js";
 
 export async function createContacts(req, res, next) {
   const newContact = await addContact(req.body);

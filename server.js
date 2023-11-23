@@ -1,4 +1,5 @@
 import app from "./app.js";
+
 import { connectDb } from "./db.js";
 
 const startServer = async () => {
