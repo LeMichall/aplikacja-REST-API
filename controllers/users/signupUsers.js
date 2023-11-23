@@ -1,3 +1,5 @@
+import gravatar from "gravatar";
+
 import { getUser } from "#repositories/getUser.js";
 import { createUser } from "#repositories/createUser.js";
 
@@ -6,12 +8,14 @@ export async function signupUser(req, res, next) {
   const user = await getUser(email);
   if (user) return res.status(409).json({ message: "Email in use" });
   try {
-    const newUser = await createUser({ email, password });
+    const avatarURL = gravatar.url(email, { default: "monsterid" }, true);
+    const newUser = await createUser({ email, password, avatarURL });
     return res.status(201).json({
       user: {
         email: newUser.email,
         subscription: newUser.subscription,
         message: "Registration successful",
+        avatar: newUser.avatarURL,
       },
     });
   } catch (error) {
