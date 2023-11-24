@@ -58,7 +58,9 @@ GET `/api/contacts`
 ![](./images/GET_contacts.jpg)
 
 GET `/api/contacts/id`
+
 ![](./images//GET_contactsById.jpg)
 
 POST `/api/users/signup`
+
 ![](./images//POST_signup.jpg)
