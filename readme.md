@@ -1,29 +1,58 @@
-## GoIT Node.js Course Template Homework
+# ContactBook API
 
-Wykonaj forka tego repozytorium, aby wykonywać zadania domowe (2-6). Fork utworzy repozytorium na Twoim koncie na http://github.com
+This project is a simple Node.js application that serves as an API for interacting with a MongoDB database. This application allows users to send requests to database and perform various operations on it such as: creating and updating contacts and users.
 
-Dodaj mentora jako collaboratora.
+## Setting up App
 
-Dla każdego zadania domowego utwórz nową gałąź (branch).
+Install requirements:
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+- **Node.js** (v18+)
+- **MongoDB** database using MongoDB
 
-Każda nowa gałąź dla zadania powinna być tworzona z gałęzi master.
+### Install
 
-Po zakończeniu wykonania zadania domowego na swojej gałęzi, należy zrobić pull request (PR). Następnie dodaj mentora do przeglądu kodu. Dopiero po zatwierdzeniu PR przez mentora możesz scalić gałąź z zadaniem domowym do gałęzi master.
+1. Clone repository
+2. Run `npm install` to install all dependencies
+3. Update/Create(if missing) `.env` file in root directory.
+4. Inside `.env` add two variables:
+   - `DB_HOST`: This is your MongoDB database connection URL
+   - `JWT_SECRET`: This is your secret key used for encrypting confidential informations like users passwords.
 
-Uważnie czytaj komentarze mentora. Popraw uwagi i zrób commit na gałęzi z zadaniem domowym. Zmiany automatycznie pojawią się w PR po wysłaniu commitu z poprawkami na GitHub. Po poprawkach ponownie dodaj mentora do przeglądu kodu.
+### Scripts
 
-- Podczas oddawania zadania domowego podaj link do PR.
-- Kod JS jest czytelny i zrozumiały, do formatowania używany jest Prettier.
+- `npm start` &mdash; Launching server
+- `npm run start:dev` &mdash; Launching server in development mode
+- `npm run lint` &mdash; Starts ESLint test
+- `npm lint:fix` &mdash; Starts ESLint tests with automatic simple bug fixes.
 
-### Komendy:
+### Usage
 
-- `npm start` &mdash;  uruchamia serwer w trybie produkcyjnym
-- `npm run start:dev` &mdash; uruchamia serwer w trybie deweloperskim (development)
-- `npm run lint` &mdash; uruchamia sprawdzanie kodu z ESLint, należy wykonać przed każdym PR i poprawić wszystkie błędy lintera
-- `npm lint:fix` &mdash; to samo co powyższe, ale również automatycznie poprawia proste błędy.
+Server is set to run at http://localhost:<port>. Usually default port for most users is 3000.
+Available endpoints:
+
+#### Contacts:
+
+`body` needs to be in JSON format
+
+- GET `/api/contacts` - list of the contacts in database
+- GET `/api/contacts/id` - list contact with given id
+- POST `/api/contacts` - create new contact (requires `body` with `name, email, phone` fields)
+- PUT `api/contacts/id` - updates existing contact with given id (requires `body` with `name, email, phone` fields)
+- DELETE `api/contacts/id` - deletes existing contact with given id
+- PATCH `api/contacts/id/favorite` - marks contact as favorite (require `body` with `favorite` field)
+
+#### Users:
+
+- Post `/api/users/signup` - creates new user (requires `body` with `email, password` fields)
+- POST `/api/users/login` - logs in user (requires `body` with `email, password` fields)
+- GET `/api/users/logout` - logs out user (requires authorization with `token` )
+- GET `/api/users/current` - list currently logged user (requires authorization with `token`)
+- PATCH `/api/users/avatars` - updates user's avatar (requires `.jpg` file, max 1 mb)
+
+### Examples:
+
+Examples of some requests using <a href="https://www.postman.com" target="_blank">Postman<a>.
+
+GET `/api/contacts`
+
+![Example contacts](https://github.com/LeMichall/aplikacja-REST-API/images/GET_contacts.jpg)
