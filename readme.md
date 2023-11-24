@@ -55,4 +55,4 @@ Examples of some requests using <a href="https://www.postman.com" target="_blank
 
 GET `/api/contacts`
 
-![](https://api.monosnap.com/file/download?id=z4mALde3mqKEcKjkYdxmY8LLUjVvV8)
+![](./images/GET_contacts.jpg)
