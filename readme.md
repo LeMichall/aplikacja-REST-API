@@ -51,7 +51,7 @@ Available endpoints:
 
 ### Examples:
 
-Examples of some requests using <a href="https://www.postman.com" target="_blank">Postman<a>.
+Examples of some requests using <a href="https://www.postman.com" target="_blank">Postman</a>.
 
 GET `/api/contacts`
 
