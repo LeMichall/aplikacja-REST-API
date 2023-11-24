@@ -27,7 +27,7 @@ Install requirements:
 
 ### Usage
 
-Server is set to run at http://localhost:<port>. Usually default port for most users is 3000.
+Server is set to run at http://localhost:[port]. Usually default port for most users is 3000.
 Available endpoints:
 
 #### Contacts:
@@ -58,7 +58,9 @@ GET `/api/contacts`
 ![](./images/GET_contacts.jpg)
 
 GET `/api/contacts/id`
+
 ![](./images//GET_contactsById.jpg)
 
 POST `/api/users/signup`
+
 ![](./images//POST_signup.jpg)
