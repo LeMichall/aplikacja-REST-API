@@ -55,4 +55,4 @@ Examples of some requests using <a href="https://www.postman.com" target="_blank
 
 GET `/api/contacts`
 
-![Example contacts](https://github.com/LeMichall/aplikacja-REST-API/images/GET_contacts.jpg)
+![Example contacts](https://github.com/LeMichall/aplikacja-REST-API/images/GET_contacts.JPG)
