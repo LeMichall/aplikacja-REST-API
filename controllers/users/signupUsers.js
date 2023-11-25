@@ -2,6 +2,7 @@ import gravatar from "gravatar";
 
 import { getUser } from "#repositories/getUser.js";
 import { createUser } from "#repositories/createUser.js";
+import { sendVerificationMail } from "#repositories/sendMail.js";
 
 export async function signupUser(req, res, next) {
   const { email, password } = req.body;
@@ -10,6 +11,7 @@ export async function signupUser(req, res, next) {
   try {
     const avatarURL = gravatar.url(email, { default: "monsterid" }, true);
     const newUser = await createUser({ email, password, avatarURL });
+    await sendVerificationMail(newUser.email, newUser.verificationToken);
     return res.status(201).json({
       user: {
         email: newUser.email,

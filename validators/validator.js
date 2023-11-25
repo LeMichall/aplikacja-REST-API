@@ -24,3 +24,14 @@ export const userValidationMiddleware = (req, res, next) => {
   if (error) return res.status(400).send({ error: error.message });
   return next();
 };
+
+const emailSchema = Joi.object({
+  email: Joi.string().email().required(),
+});
+
+export const emailValidationMiddleware = (req, res, next) => {
+  const newEmail = req.body;
+  const { error } = emailSchema.validate(newEmail);
+  if (error) return res.status(400).send({ error: error.message });
+  return next();
+};

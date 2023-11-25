@@ -7,6 +7,8 @@ export async function loginUser(req, res, next) {
   const user = await getUser(email);
   if (!user || !(await user.validatePassword(password)))
     return res.status(401).json({ message: "Email or password is wrong" });
+  if (!user.verify)
+    return res.status(401).json({ message: "User is not verified" });
   const userPayload = {
     id: user._id,
     email: user.email,
